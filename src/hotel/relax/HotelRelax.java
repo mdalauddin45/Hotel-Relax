@@ -34,12 +34,12 @@ public class HotelRelax extends JFrame{
         b1.setFont(new Font("serif", Font.PLAIN, 15));
         b1.setBorder(BorderFactory.createEmptyBorder());
         b1.setFocusPainted(false);
-        // b1.addActionListener(new ActionListener(){
-        //     public void actionPerformed(ActionEvent ae){
-        //         new Login().setVisible(true);
-        //         setVisible(false);
-        //     }
-        // });
+        b1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                new Login();
+                setVisible(false);
+            }
+        });
         image.add(b1);
         
         setVisible(true);
