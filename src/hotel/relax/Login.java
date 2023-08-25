@@ -6,6 +6,9 @@ import java.sql.*;
 
 public class Login extends JFrame {
     Login(){
+
+        super("Login");
+
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
 
@@ -63,6 +66,13 @@ public class Login extends JFrame {
             }
         });
         add(b2);
+
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/second.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel l3 = new JLabel(i3);
+        l3.setBounds(350, 10, 150, 150);
+        add(l3);
 
 
 

@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class HotelRelax extends JFrame{
+public class HotelRelax extends JFrame implements ActionListener{
     HotelRelax(){
         super("Hotel Relax");
     
@@ -30,16 +30,11 @@ public class HotelRelax extends JFrame{
         JButton b1 = new JButton("Next");
         b1.setBackground(Color.WHITE);
         b1.setForeground(Color.BLACK);
+        b1.addActionListener(this);
         b1.setBounds(1150, 450, 150, 50);
         b1.setFont(new Font("serif", Font.PLAIN, 15));
         b1.setBorder(BorderFactory.createEmptyBorder());
         b1.setFocusPainted(false);
-        b1.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent ae){
-                new Login();
-                setVisible(false);
-            }
-        });
         image.add(b1);
         
         setVisible(true);
@@ -59,6 +54,10 @@ public class HotelRelax extends JFrame{
                 System.out.println(e);
             }
         }
+    }
+    public void actionPerformed(ActionEvent ae){
+        setVisible(false);
+        new Login();
     }
 
     public static void main(String[] args) {
