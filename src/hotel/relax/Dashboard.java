@@ -2,56 +2,92 @@ package hotel.relax;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class Dashboard extends JFrame {
-    Dashboard(){
-        setBounds(0,0,1550,1000);
-        setLayout(null);
+public class Dashboard extends JFrame{
 
-        // Background Image
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/third.jpg"));
-        Image i2 = i1.getImage().getScaledInstance(1550, 1000, Image.SCALE_DEFAULT);
-        ImageIcon i3 = new ImageIcon(i2);
-        JLabel l1 = new JLabel(i3);
-        l1.setBounds(0, 0, 1550, 1000);
-        add(l1);
-
-        // Heading
-        JLabel l2 = new JLabel("The Hotel Relax Welcomes You");
-        l2.setBounds(400, 80, 1000, 70);
-        l2.setForeground(Color.white);
-        l2.setFont(new Font("serif", Font.PLAIN, 70));
-        l1.add(l2);
-        
-        //JMenuBar
-        JMenuBar mb = new JMenuBar();
-        mb.setBounds(0, 0, 1550, 30);
-        l1.add(mb);
-
-        //JMenu
-        JMenu m1 = new JMenu("Hotel Management");
-        m1.setForeground(Color.red);
-        mb.add(m1);
-        
-        //JMenuItem
-        JMenuItem i1a = new JMenuItem("Reception");
-        m1.add(i1a);
-
-        JMenu m2 = new JMenu("Admin");
-        m2.setForeground(Color.red);
-        mb.add(m2);
-
-        JMenuItem i2a = new JMenuItem("Add Employee");
-        m2.add(i2a);
-
-        JMenuItem i2b = new JMenuItem("Add Rooms");
-        m2.add(i2b);
-
-        JMenuItem i2c = new JMenuItem("Add Drivers");
-        m2.add(i2c);
-
-        setVisible(true);
-    }
     public static void main(String[] args) {
-        new Dashboard();
+        new Dashboard().setVisible(true);
+    }
+    
+    public Dashboard() {
+        super("HOTEL MANAGEMENT SYSTEM");
+	
+        setForeground(Color.CYAN);
+        setLayout(null); 
+
+        
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("hotel/management/system/icons/third.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(1950, 1000,Image.SCALE_DEFAULT);
+        ImageIcon i3 = new ImageIcon(i2); 
+	JLabel NewLabel = new JLabel(i3);
+	NewLabel.setBounds(0, 0, 1950, 1000); 
+        add(NewLabel);
+        
+        JLabel AirlineManagementSystem = new JLabel("THE TAJ GROUP WELCOMES YOU");
+	AirlineManagementSystem.setForeground(Color.WHITE);
+        AirlineManagementSystem.setFont(new Font("Tahoma", Font.PLAIN, 46));
+	AirlineManagementSystem.setBounds(600, 60, 1000, 85);
+	NewLabel.add(AirlineManagementSystem);
+		
+		
+        JMenuBar menuBar = new JMenuBar();
+	setJMenuBar(menuBar);
+		
+        JMenu AirlineSystem = new JMenu("HOTEL MANAGEMENT");
+        AirlineSystem.setForeground(Color.BLUE);
+	menuBar.add(AirlineSystem);
+		
+        JMenuItem FlightDetails = new JMenuItem("RECEPTION");
+	AirlineSystem.add(FlightDetails);
+		
+	JMenu AirlineSystemHello = new JMenu("ADMIN");
+        AirlineSystemHello.setForeground(Color.RED);
+	menuBar.add(AirlineSystemHello);
+        
+        JMenuItem FlightDetailshello1 = new JMenuItem("ADD EMPLOYEE");
+	AirlineSystemHello.add(FlightDetailshello1);
+        
+        FlightDetailshello1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                try{
+                    new AddEmployee().setVisible(true);
+                }catch(Exception e ){}
+            }
+	});
+        
+
+        JMenuItem FlightDetailshello2 = new JMenuItem("ADD ROOMS");
+	AirlineSystemHello.add(FlightDetailshello2);
+        
+        FlightDetailshello2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                try{
+                    new AddRoom().setVisible(true);
+                }catch(Exception e ){}
+            }
+	});
+        
+
+	FlightDetails.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                new Reception();
+            }
+	});
+        
+        
+        JMenuItem FlightDetailshello3 = new JMenuItem("ADD DRIVERS");
+	AirlineSystemHello.add(FlightDetailshello3);
+        
+	FlightDetailshello3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                try{
+                    new AddDrivers().setVisible(true);
+                }catch(Exception e ){}
+            }
+	});
+        
+		
+        setSize(1950,1090);
+	setVisible(true);
+        getContentPane().setBackground(Color.WHITE);
     }
 }
